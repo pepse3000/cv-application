@@ -1,6 +1,4 @@
-import ball from "../assets/ball.svg"
-import flower from "../assets/flower.svg"
-import star from "../assets/star.svg"
+
 import InfoContainer from "./InfoContainer";
 
 function Contacts({ contactInfo }) {
@@ -8,7 +6,7 @@ function Contacts({ contactInfo }) {
   return (
     <div className="contacts">
       <img
-        src={flower}
+        src={contactInfo.image}
         alt="star photo"
         style={{ filter: "invert(1)" }}
       />

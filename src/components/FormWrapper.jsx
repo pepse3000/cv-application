@@ -1,6 +1,6 @@
-import { useState, useRef } from "react";
+import { useRef, useState } from "react";
 
-function RedactorCard({ name, children }) {
+function FormWrapper({ name, children, onClickEvent }) {
   const [open, setOpen] = useState(false);
   const contentRef = useRef(null);
 
@@ -9,20 +9,22 @@ function RedactorCard({ name, children }) {
   }
 
   return (
-    <div className="card">
-      <h2>
+    <div className="form-wrapper">
+      <h4>
         {name}
         <button
           className={open ? "active" : null}
           onClick={toggleCollapse}
         />
-      </h2>
+        <button className="delete"
+          onClick={onClickEvent} />
+      </h4>
       <div
         ref={contentRef}
         style={{
-          height: open ? "auto" : "0px",
+          maxHeight: open ? `${contentRef.current.scrollHeight + 2}px` : "0px",
           overflow: "hidden",
-          transition: "height 0.3s ease-in-out"
+          transition: "max-height 0.3s ease-in-out"
         }}>
         {children}
       </div>
@@ -30,4 +32,4 @@ function RedactorCard({ name, children }) {
   )
 }
 
-export default RedactorCard;
+export default FormWrapper;

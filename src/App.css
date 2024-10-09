@@ -15,6 +15,44 @@
   margin: 0;
 }
 
+input,
+textarea {
+  font-family: "Inter", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+input {
+
+  padding: 5px;
+  background: var(--white);
+  border: 2px solid #ffffff00;
+  border-radius: 5px;
+}
+
+label {
+  text-transform: uppercase;
+  font-size: 14px;
+  margin: 3px 0;
+}
+
+input:focus {
+  border: 2px solid #5577FF;
+  outline: 0;
+}
+
+textarea {
+  border-radius: 5px;
+  resize: none;
+  border: 2px solid #ffffff00;
+}
+
+textarea:focus {
+  border: 2px solid #5577FF;
+  outline: 0;
+}
+
 body {
   background-color: var(--dark-background);
   color: var(--white);
@@ -37,13 +75,16 @@ img {
   margin-bottom: 20px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .main-cv {
@@ -71,7 +112,7 @@ li {
   display: flex;
   justify-content: space-between;
   padding-bottom: 5px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid var(--white);
   margin-bottom: 20px;
 }
 
@@ -121,4 +162,120 @@ li {
 .cv-element-couple {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+/* redactor */
+
+.redactor {
+  position: sticky;
+  margin-right: 3rem;
+  padding: 20px 40px 0px 0px;
+}
+
+.redactor h1 {
+  padding: 0;
+  transform: scaleX(1);
+}
+
+.card {
+  margin-bottom: 20px;
+}
+
+h2 button,
+h4 button {
+  background: url(./assets/expandArrow.png);
+  filter: invert(1);
+  border: 0;
+  background-size: contain;
+  background-position: center;
+  width: 20px;
+  height: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+h2 button:hover,
+h4 button:hover {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+h2 button.active,
+h4 button.active {
+  transform: rotate(180deg);
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-wrapper {
+  padding: 0 10px;
+  margin: 10px 0;
+}
+
+.form-wrapper h4 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.form-wrapper button {
+  height: 20px;
+  width: 15px;
+}
+
+.add-btn {
+  background: 0;
+  border: 1px solid var(--white);
+  color: var(--white);
+  margin-left: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 5px;
+}
+
+.add-btn:hover {
+  background: #ffffff30;
+  cursor: pointer;
+}
+
+.skill-level {
+  display: flex;
+  gap: 3px;
+}
+
+.level-info {
+  width: 3px;
+  height: 15px;
+  border: 1px solid var(--white);
+  border-radius: 2px;
+  background: #ffffff10;
+}
+
+.level-info.full {
+  background-color: var(--white);
+}
+
+.form-wrapper:hover .delete {
+  transition: 0.1s ease-in-out;
+  cursor: pointer;
+  opacity: 1;
+}
+
+.form-wrapper:hover .delete:hover {
+  opacity: 0.7;
+}
+
+h4 .delete {
+  background: url(./assets/trashBin.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  right: 0;
+  opacity: 0;
 }
