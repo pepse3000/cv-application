@@ -1,12 +1,12 @@
 import RedactorContacts from "./RedactorContacts";
 
-function Redactor() {
+function Redactor({ info, setInfo }) {
 
 
   return (
     <div className="redactor">
       <h1>Redactor</h1>
-      <RedactorContacts />
+      <RedactorContacts info={info} setInfo={setInfo} />
     </div>
   )
 }
