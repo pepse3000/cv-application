@@ -20,13 +20,13 @@ function RedactorCard({ name, children }) {
       <div
         ref={contentRef}
         style={{
-          maxHeight: open ? `${contentRef.current.scrollHeight}px` : "0px",
+          height: open ? "auto" : "0px",
           overflow: "hidden",
-          transition: "max-height 0.3s ease-in-out"
+          transition: "height 0.3s ease-in-out"
         }}>
         {children}
       </div>
-    </div>
+    </div >
   )
 }
 
