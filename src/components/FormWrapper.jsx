@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 
-function FormWrapper({ name, children, onClickEvent }) {
+function FormWrapper({ name, children, onClickEvent, currentTheme }) {
   const [open, setOpen] = useState(false);
   const contentRef = useRef(null);
 
@@ -8,15 +8,21 @@ function FormWrapper({ name, children, onClickEvent }) {
     setOpen(!open);
   }
 
+  const theme = currentTheme === "light-theme" ? "filter-white" :
+    currentTheme === "dark-theme" ? "filter-dark" :
+      currentTheme === "orange-theme" ? "filter-orange" :
+        currentTheme === "gray-theme" ? "filter-gray" :
+          null;
+
   return (
     <div className="form-wrapper">
       <h4>
         {name}
         <button
-          className={open ? "active" : null}
+          className={open ? "active " + theme : theme}
           onClick={toggleCollapse}
         />
-        <button className="delete"
+        <button className={"delete " + theme}
           onClick={onClickEvent} />
       </h4>
       <div

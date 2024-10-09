@@ -47,10 +47,10 @@ function RedactorExperience({ info, setInfo }) {
   }
 
   return (
-    <RedactorCard name="Experience">
+    <RedactorCard name="Experience" currentTheme={info.currentTheme}>
       {info.experience.map(el => {
         return (
-          <FormWrapper name={el.companyName} key={el.id} onClickEvent={() => handleDelete(el.id)}>
+          <FormWrapper name={el.companyName} key={el.id} onClickEvent={() => handleDelete(el.id)} currentTheme={info.currentTheme}>
             <form>
               <label htmlFor="date">Date</label>
               <input

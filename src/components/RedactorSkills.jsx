@@ -46,10 +46,10 @@ function RedactorSkills({ info, setInfo }) {
   }
 
   return (
-    <RedactorCard name="Skills">
+    <RedactorCard name="Skills" currentTheme={info.currentTheme}>
       {info.skills.map(el => {
         return (
-          <FormWrapper name={el.skillName} key={el.id} onClickEvent={() => handleDelete(el.id)}>
+          <FormWrapper name={el.skillName} key={el.id} onClickEvent={() => handleDelete(el.id)} currentTheme={info.currentTheme}>
             <form>
               <label htmlFor="skillName">Skill Name</label>
               <input

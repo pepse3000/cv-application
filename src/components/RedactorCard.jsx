@@ -1,19 +1,25 @@
 import { useState, useRef } from "react";
 
-function RedactorCard({ name, children }) {
-  const [open, setOpen] = useState(false);
+function RedactorCard({ name, children, status, currentTheme }) {
+  const [open, setOpen] = useState(status ? true : false);
   const contentRef = useRef(null);
 
   const toggleCollapse = () => {
     setOpen(!open);
   }
 
+  const theme = currentTheme === "light-theme" ? "filter-white" :
+    currentTheme === "dark-theme" ? "filter-dark" :
+      currentTheme === "orange-theme" ? "filter-orange" :
+        currentTheme === "gray-theme" ? "filter-gray" :
+          null;
+
   return (
     <div className="card">
       <h2>
         {name}
         <button
-          className={open ? "active" : null}
+          className={open ? "active " + theme : theme}
           onClick={toggleCollapse}
         />
       </h2>

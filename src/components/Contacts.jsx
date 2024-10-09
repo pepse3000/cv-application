@@ -1,14 +1,20 @@
 
 import InfoContainer from "./InfoContainer";
 
-function Contacts({ contactInfo }) {
+function Contacts({ contactInfo, currentTheme }) {
+
+  const theme = currentTheme === "light-theme" ? "filter-white" :
+    currentTheme === "dark-theme" ? "filter-dark" :
+      currentTheme === "orange-theme" ? "filter-orange" :
+        currentTheme === "gray-theme" ? "filter-gray" :
+          null;
 
   return (
     <div className="contacts">
       <img
         src={contactInfo.image}
         alt="star photo"
-        style={{ filter: "invert(1)" }}
+        className={theme}
       />
 
       <InfoContainer name={"Contacts"} count={"01"} />

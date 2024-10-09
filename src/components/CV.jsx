@@ -8,10 +8,12 @@ function CVMain({ info }) {
   return (
     <div className="main-cv">
       <section>
-        <Contacts contactInfo={info.contacts} />
+        <Contacts contactInfo={info.contacts} currentTheme={info.currentTheme} />
       </section>
       <section>
-        <h1>John Doe, Full Stack Developer</h1>
+        <h1
+          className={info.currentTheme == "gray-theme" ? "transparent" : "null"}
+        >{info.mainInfo.personName}, {info.mainInfo.speciality}</h1>
         <div className="separate-info">
           <div className="left-column">
             <Experience expInfo={info.experience} />
