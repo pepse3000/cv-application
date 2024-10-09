@@ -15,7 +15,7 @@ function RedactorContacts({ info, setInfo }) {
   }
 
   return (
-    <RedactorCard name={"Contacts"}>
+    <RedactorCard status={true} name={"Contacts"} currentTheme={info.currentTheme}>
       <form
         style={{
           padding: "0 10px"

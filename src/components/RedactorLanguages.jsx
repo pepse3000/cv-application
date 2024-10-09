@@ -46,10 +46,10 @@ function RedactorLanguages({ info, setInfo }) {
   }
 
   return (
-    <RedactorCard name="Languages">
+    <RedactorCard name="Languages" currentTheme={info.currentTheme}>
       {info.languages.map(el => {
         return (
-          <FormWrapper name={el.langName} key={el.id} onClickEvent={() => handleDelete(el.id)}>
+          <FormWrapper name={el.langName} key={el.id} onClickEvent={() => handleDelete(el.id)} currentTheme={info.currentTheme}>
             <form>
               <label htmlFor="langName">Language Name</label>
               <input

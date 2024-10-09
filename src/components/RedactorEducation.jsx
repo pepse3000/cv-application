@@ -47,10 +47,10 @@ function RedactorEducation({ info, setInfo }) {
   }
 
   return (
-    <RedactorCard name="Education">
+    <RedactorCard name="Education" currentTheme={info.currentTheme}>
       {info.education.map(el => {
         return (
-          <FormWrapper name={el.eduName} key={el.id} onClickEvent={() => handleDelete(el.id)}>
+          <FormWrapper name={el.eduName} key={el.id} onClickEvent={() => handleDelete(el.id)} currentTheme={info.currentTheme}>
             <form
               style={{ padding: "0 10px" }}>
               <label htmlFor="date">Date</label>
