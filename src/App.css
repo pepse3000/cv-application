@@ -1,18 +1,68 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root {
-  --dark-background: #262626;
-  --white: #f5f5f5;
-
   font-family: "Inter", system-ui;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
+
+
+.light-theme {
+  --background-color: #F8F8F8;
+  --text-color: #0c0c0c;
+  --input-color: #e6e6e6;
+  --active-color: #5869ff;
+}
+
+.filter-light {
+  filter: invert(0%) sepia(14%) saturate(3129%) hue-rotate(324deg) brightness(82%) contrast(91%);
+}
+
+.dark-theme {
+  --background-color: #262626;
+  --text-color: #f5f5f5;
+  --input-color: #3a3a3a;
+  --active-color: #5869ff;
+}
+
+.filter-dark {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(110deg) brightness(103%) contrast(102%);
+}
+
+.orange-theme {
+  --background-color: #FDF7E9;
+  --text-color: #D03B00;
+  --input-color: #fffdf7;
+  --active-color: #D03B00;
+}
+
+.filter-orange {
+  filter: invert(24%) sepia(76%) saturate(2238%) hue-rotate(3deg) brightness(99%) contrast(101%);
+}
+
+.gray-theme {
+  --background-color: #D2D4DA;
+  --text-color: #0c0c0c;
+  --input-color: #e7e7e7;
+  --active-color: #161616;
+}
+
+.filter-gray {
+  filter: invert(0%) sepia(14%) saturate(3129%) hue-rotate(324deg) brightness(82%) contrast(91%);
+}
+
 * {
   padding: 0;
   margin: 0;
+  color: var(--text-color);
+}
+
+body {
+  transition: background-color 0.3s ease-in-out;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 input,
@@ -24,9 +74,9 @@ textarea {
 }
 
 input {
-
+  transition: border 0.2s ease-in-out;
   padding: 5px;
-  background: var(--white);
+  background: var(--input-color);
   border: 2px solid #ffffff00;
   border-radius: 5px;
 }
@@ -38,35 +88,33 @@ label {
 }
 
 input:focus {
-  border: 2px solid #5577FF;
+  border: 2px solid var(--active-color);
   outline: 0;
 }
 
 textarea {
+  transition: border 0.2s ease-in-out;
   border-radius: 5px;
+  background-color: var(--input-color);
   resize: none;
   border: 2px solid #ffffff00;
 }
 
 textarea:focus {
-  border: 2px solid #5577FF;
+  border: 2px solid var(--active-color);
   outline: 0;
-}
-
-body {
-  background-color: var(--dark-background);
-  color: var(--white);
 }
 
 h1 {
   font-family: "Prompt", sans-serif;
-  transform: scaleX(1.1);
-  padding-left: 25px;
+  transform: scaleX(1.04);
+  padding-left: 10px;
   font-weight: 500;
   font-size: 60px;
   line-height: 3.5rem;
   font-style: normal;
   margin-bottom: 20px;
+  color: var(--text-color);
 }
 
 img {
@@ -112,7 +160,7 @@ li {
   display: flex;
   justify-content: space-between;
   padding-bottom: 5px;
-  border-bottom: 1px solid var(--white);
+  border-bottom: 1px solid var(--text-color);
   margin-bottom: 20px;
 }
 
@@ -185,7 +233,6 @@ li {
 h2 button,
 h4 button {
   background: url(./assets/expandArrow.png);
-  filter: invert(1);
   border: 0;
   background-size: contain;
   background-position: center;
@@ -230,8 +277,8 @@ h4 button.active {
 
 .add-btn {
   background: 0;
-  border: 1px solid var(--white);
-  color: var(--white);
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
   margin-left: 10px;
   width: 30px;
   height: 30px;
@@ -251,13 +298,13 @@ h4 button.active {
 .level-info {
   width: 3px;
   height: 15px;
-  border: 1px solid var(--white);
+  border: 1px solid var(--text-color);
   border-radius: 2px;
   background: #ffffff10;
 }
 
 .level-info.full {
-  background-color: var(--white);
+  background-color: var(--text-color);
 }
 
 .form-wrapper:hover .delete {
@@ -278,4 +325,79 @@ h4 .delete {
   position: absolute;
   right: 0;
   opacity: 0;
+}
+
+.transparent {
+  color: transparent;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: var(--text-color);
+}
+
+
+.theme-btns,
+.svg-btns {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.theme-btns p,
+.svg-btns p {
+  font-size: 14px;
+  text-transform: uppercase;
+  position: relative;
+  top: 5px;
+}
+
+.theme-btns button {
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
+}
+
+.theme-btns button:hover,
+.svg-btns button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.light {
+  background: #F8F8F8;
+}
+
+.dark {
+  background: #262626;
+}
+
+.orange {
+  background: #D03B00;
+}
+
+.gray {
+  background: #D2D4DA;
+}
+
+.svg-handler:nth-child(2) {
+  background: url(./assets/ball.svg);
+  background-size: contain;
+}
+
+.svg-handler:nth-child(3) {
+  background: url(./assets/flower.svg);
+  background-size: contain;
+}
+
+.svg-handler:nth-child(4) {
+  background: url(./assets/star.svg);
+  background-size: contain;
+}
+
+.svg-btns button {
+  border: 0;
+  border-radius: 5px;
+  margin-top: 10px;
+  width: 20px;
+  height: 20px;
 }
