@@ -4,6 +4,7 @@ import RedactorEducation from "./RedactorEducation";
 import RedactorSkills from "./RedactorSkills";
 import RedactorLanguages from "./RedactorLanguages";
 import RedactorMain from "./RedactorMain";
+import RedactorVisuals from "./RedactorThemes";
 
 function Redactor({ info, setInfo }) {
 
@@ -11,6 +12,7 @@ function Redactor({ info, setInfo }) {
   return (
     <div className="redactor">
       <h1>Redactor</h1>
+      <RedactorVisuals info={info} setInfo={setInfo} />
       <RedactorMain info={info} setInfo={setInfo} />
       <RedactorContacts info={info} setInfo={setInfo} />
       <RedactorExperience info={info} setInfo={setInfo} />
