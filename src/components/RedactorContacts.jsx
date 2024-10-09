@@ -16,7 +16,10 @@ function RedactorContacts({ info, setInfo }) {
 
   return (
     <RedactorCard name={"Contacts"}>
-      <form>
+      <form
+        style={{
+          padding: "0 10px"
+        }}>
         <label htmlFor="github">Github</label>
         <input
           placeholder="github"
