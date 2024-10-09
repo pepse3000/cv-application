@@ -7,6 +7,7 @@ import './App.css'
 
 function App() {
   const [info, setInfo] = useState({ ...defaultInfo });
+  document.body.className = info.currentTheme;
 
   return (
     <>
