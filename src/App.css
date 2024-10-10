@@ -401,3 +401,14 @@ h4 .delete {
   width: 20px;
   height: 20px;
 }
+
+@media (max-width: 640px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main-cv {
+    flex-direction: column;
+  }
+}
