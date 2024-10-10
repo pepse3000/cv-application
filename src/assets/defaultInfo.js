@@ -38,7 +38,7 @@ export const defaultInfo = {
   skills: [
     {
       id: crypto.randomUUID(),
-      skillName: "React Native",
+      skillName: "React",
       level: 1
     },
     {
